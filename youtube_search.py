@@ -12,10 +12,10 @@ def search_youtube(query):
     request = youtube.search().list(
         part="snippet",
         q=query,
-        maxResults=20,  # Increased to 20
+        maxResults=20, 
         type="video",
-        publishedAfter="2024-03-13T00:00:00Z",  # Last 14 days
-        videoDuration="medium"  # 4-20 minutes
+        publishedAfter="2024-03-13T00:00:00Z",  
+        videoDuration="medium"  
     )
     
     response = request.execute()
@@ -38,7 +38,7 @@ def get_voice_input():
         audio = recognizer.listen(source)
     
     try:
-        text = recognizer.recognize_google(audio, language="hi-IN")  # Added Hindi support
+        text = recognizer.recognize_google(audio, language="hi-IN")  
         print(f"Recognized: {text}")
         return text
     except sr.UnknownValueError:
